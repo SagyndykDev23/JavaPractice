@@ -3,15 +3,16 @@ package Day13;
 import java.util.*;
 
 public class Message {
-    private User sender;
-    private User receiver;
-    private String text;
-    private Date date;
+    private final User sender;
+    private final User receiver;
+    private final String text;
+    private final Date date;
 
-    public Message(String text, User receiver, User sender) {
-        this.text = text;
-        this.receiver = receiver;
+    public Message(User sender, User receiver, String text) {
         this.sender = sender;
+        this.receiver = receiver;
+        this.text = text;
+        this.date = new Date();
     }
 
     public User getSender() {
@@ -32,6 +33,9 @@ public class Message {
 
     @Override
     public String toString(){
-
+        return "FROM: " + getSender()+
+                "TO: " + getReceiver() +
+                "ON: " + getDate().toString() +
+                getText();
     }
 }
